@@ -75,9 +75,10 @@
 		 */
 			public function SetTables($arr)
 			{
-				if(is_array($arr) && !empty($arr) && sizeof($arr) <= 2) {
-					$valid = array("TOP_PAGES","TOP_QUERIES","CRAWL_ERRORS","CONTENT_ERRORS",
+				$valid = array("TOP_PAGES","TOP_QUERIES","CRAWL_ERRORS","CONTENT_ERRORS",
 					  "CONTENT_KEYWORDS","INTERNAL_LINKS","EXTERNAL_LINKS","SOCIAL_ACTIVITY");
+					  
+				if(is_array($arr) && !empty($arr) && count($arr) <= count($valid)) {
 					$this->_tables = array();
 					for($i=0; $i < sizeof($arr); $i++) {
 						if(in_array($arr[$i], $valid)) {
